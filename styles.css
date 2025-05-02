@@ -95,6 +95,6 @@ body {
   background-color: #323232;
 }
 
-.button.operator:hover, .button:hover {
+.button:hover {
   background-color: #2e2e2e;
 }
