@@ -36,13 +36,38 @@ body {
 .buttonBox {
   display: flex;
   flex-direction: column;
-  background-color: #ee5a5a;
-  height: 70%;
+  background-color: #202020;
+  height: 60%;
+  padding: 4px;
 }
 
 .buttonRow {
   display: flex;
-  flex-grow: 1;
+  flex: 1 1 0;
 }
 
+.button {
+  background-color: #3c3c3c;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 0;
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  margin: 1px;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+}
+
+.equal {
+  background-color: #6da9d8;
+  color: black;
+}
+
+.operator {
+  background-color: #323232;
+}
 
