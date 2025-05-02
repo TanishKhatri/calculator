@@ -7,13 +7,37 @@ body {
   margin:0;
 }
 
+.calcHeader {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 6px;
+  align-items: center;
+}
+
+.filter {
+  filter: invert(100%) sepia(5%) saturate(0%) hue-rotate(333deg) brightness(105%) contrast(108%);
+}
+
+.calcTitle {
+  color: white;
+  font-size: 25px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
 .calcBody {
   background-color: #202020;
   height: 533px;
   width: 321px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .calcPreview,.calcDisplay {
