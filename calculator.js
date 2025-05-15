@@ -29,7 +29,7 @@ function operate(firstNumber, operator, secondNumber) {
   }
 }
 
-function numberClickEvent() {
+function numberButtons() {
   //List of all buttons
   let btnList = document.querySelectorAll(".digit");
 
@@ -40,12 +40,14 @@ function numberClickEvent() {
       } else {
         firstNumber += numberClicked;
       }
+      updateCalcPreview();
     } else {
       if (replaceFlag) {
         secondNumber = numberClicked;
       } else {
         secondNumber += numberClicked;
       }
+      updateCalcPreview();
     }
   }
 
@@ -74,40 +76,63 @@ function operatorButton() {
   let operatorList = document.querySelectorAll(".std");
   operatorList.forEach((op) => {
     op.addEventListener("click", (e) => {
+      if (secondNumber !== "" && !fnOrSn) {
+        showResult();
+      }
       switch (e.target.id) {
         case "add":
           operator = "+";
           fnOrSn = false;
           replaceFlag = true;
+          updateCalcPreview();
           break;
         case "subtract":
           operator = "-";
           fnOrSn = false;
           replaceFlag = true;
+          updateCalcPreview();
           break;
         case "multiply":
           operator = "*";
           fnOrSn = false;
           replaceFlag = true;
+          updateCalcPreview();
           break;
         case "divide":
           operator = "/";
           fnOrSn = false;
           replaceFlag = true;
+          updateCalcPreview();
           break;  
       }
     });
   });
 }
 
+function updateCalcPreview() {
+  calcPreview.textContent = firstNumber + ` ${operator} ` + secondNumber;
+}
+
+function showResult() {
+  let result = operate(firstNumber, operator, secondNumber);
+  if (String(result).length > 10) {
+    calcDisplay.textContent = "Number Big"
+  } else {
+    calcDisplay.textContent = result;
+  }
+  calcPreview.textContent += " = ";
+  firstNumber = `${result}`;
+  secondNumber = "";
+  replaceFlag = true;
+  fnOrSn = true;
+}
+
 function equalButton() {
   let eq = document.querySelector(".equal");
   eq.addEventListener("click", () => {
-    let result = operate(firstNumber, operator, secondNumber);
-    calcDisplay.textContent = result;
-    firstNumber = `${result}`;
-    replaceFlag = true;
-    fnOrSn = true;
+    if ((firstNumber !== "") && (secondNumber !== "") && (operator !== "")) {
+      showResult();
+    }
   })
 }
 
@@ -124,7 +149,7 @@ function allClearButton() {
   })
 }
 
-numberClickEvent();
+numberButtons();
 allClearButton();
 operatorButton();
 equalButton();
