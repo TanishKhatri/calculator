@@ -183,6 +183,42 @@ function removeButton() {
   })
 }
 
+function plusMinus() {
+  let pm = document.querySelector("#plusMinus");
+  pm.addEventListener("click", () => {
+    if (fnOrSn) {
+      let temp = parseFloat(firstNumber);
+      temp *= -1;
+      firstNumber = temp.toString();
+      calcDisplay.textContent = firstNumber;
+    } else {
+      let temp = parseFloat(secondNumber);
+      temp *= -1;
+      secondNumber = temp.toString();
+      calcDisplay.textContent = secondNumber;
+    }
+  })
+}
+
+function percent() {
+  let percent = document.querySelector("#percent");
+  percent.addEventListener("click", () => {
+    if (fnOrSn) {
+      let temp = parseFloat(firstNumber);
+      temp = temp/100;
+      firstNumber = temp.toString();
+      calcDisplay.textContent = firstNumber;
+    } else {
+      let temp = parseFloat(secondNumber);
+      temp = temp/100;
+      secondNumber = temp.toString();
+      calcDisplay.textContent = secondNumber;
+    }
+  })
+}
+
+percent();
+plusMinus();
 removeButton();
 decimalPointer();
 numberButtons();
