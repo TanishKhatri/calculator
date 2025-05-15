@@ -114,8 +114,8 @@ function updateCalcPreview() {
 }
 
 function showResult() {
-  let result = operate(firstNumber, operator, secondNumber);
-  if (String(result).length > 10) {
+  let result = parseFloat(operate(firstNumber, operator, secondNumber).toFixed(5));
+  if (result.length > 10) {
     calcDisplay.textContent = "Number Big"
   } else {
     calcDisplay.textContent = result;
@@ -149,6 +149,23 @@ function allClearButton() {
   })
 }
 
+function decimalPointer() {
+ let point = document.querySelector("#point");
+ point.addEventListener(("click"), () => {
+  if (!calcDisplay.textContent.includes(".")) {
+    calcDisplay.textContent += "."
+    if (fnOrSn) {
+      firstNumber += ".";
+      updateCalcPreview();
+    } else {
+      secondNumber += ".";
+      updateCalcPreview();
+    }
+  }
+ })
+}
+
+decimalPointer();
 numberButtons();
 allClearButton();
 operatorButton();
