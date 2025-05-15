@@ -165,6 +165,25 @@ function decimalPointer() {
  })
 }
 
+function removeButton() {
+  let remove = document.querySelector("#remove");
+  remove.addEventListener("click", () => {
+    if (calcDisplay.textContent.length > 1) {
+      calcDisplay.textContent = calcDisplay.textContent.slice(0, calcDisplay.textContent.length - 1);
+    } else {
+      calcDisplay.textContent = "0";
+      replaceFlag = true;
+    }
+    if (fnOrSn) {
+      firstNumber = firstNumber.slice(0, firstNumber.length - 1);
+    } else {
+      secondNumber = secondNumber.slice(0, secondNumber.length - 1);
+    }
+    updateCalcPreview();
+  })
+}
+
+removeButton();
 decimalPointer();
 numberButtons();
 allClearButton();
