@@ -217,6 +217,18 @@ function percent() {
   })
 }
 
+function isMobileDevice() {
+  return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (isMobileDevice()) {
+    const calcBody = document.querySelector(".calcBody");
+    calcBody.classList.add("mobileCalcBody");
+  }
+})
+
+
 percent();
 plusMinus();
 removeButton();

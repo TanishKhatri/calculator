@@ -5,6 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   margin:0;
+  padding:0;
   background-color: #696969;
 }
 
@@ -109,7 +110,18 @@ body {
 
 @media screen and (max-width:600px) {
   .calcBody {
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
   }
+}
+
+.calcBody.mobileCalcBody{
+  height:100%;
+  width: 100%;;
+  padding-bottom: 135px;
+}
+
+html, body {
+  height: 100dvh;
+  overflow: hidden;
 }
