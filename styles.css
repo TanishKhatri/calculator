@@ -106,10 +106,3 @@ body {
 .button:active {
   filter: brightness(0.5);
 }
-
-@media screen and (max-width:600px) {
-  .calcBody {
-    width: 100vw;
-    height: 100vh;
-  }
-}
