@@ -114,7 +114,7 @@ function updateCalcPreview() {
 }
 
 function showResult() {
-  let result = parseFloat(operate(firstNumber, operator, secondNumber).toFixed(5));
+  let result = parseFloat(operate(firstNumber, operator, secondNumber).toFixed(5)).toString();
   if (result.length > 10) {
     calcDisplay.textContent = "Number Big"
   } else {
